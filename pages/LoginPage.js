@@ -10,7 +10,10 @@ export class LoginPage {
     }
 
     async goto(){
-        await this.page.goto('https://rahulshettyacademy.com/client/#/auth/login')
+        if (!process.env.BASE_URL) {
+        throw new Error("BASE_URL is missing from environment variables!");
+        }
+        await this.page.goto(process.env.BASE_URL)
     }
 
     async login(userName , passWord){
