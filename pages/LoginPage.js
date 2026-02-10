@@ -10,6 +10,9 @@ export class LoginPage {
     }
 
     async goto(){
+        if (!process.env.BASE_URL) {
+        throw new Error("BASE_URL is missing from environment variables!");
+        }
         await this.page.goto(process.env.BASE_URL)
     }
 
