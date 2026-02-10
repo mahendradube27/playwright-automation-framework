@@ -1,5 +1,7 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from "dotenv"
+import path from "path"
 
 /**
  * Read environment variables from file.
@@ -9,6 +11,8 @@ import { defineConfig, devices } from '@playwright/test';
 // import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 
+
+dotenv.config();
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
@@ -31,7 +35,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-failure',
-    headless : true,
+    headless : false,
     screenshot : 'only-on-failure',
     video : 'retain-on-failure',
   },
