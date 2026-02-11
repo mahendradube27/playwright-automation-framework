@@ -4,6 +4,8 @@ import { DashboardPage } from "../pages/DashboardPage"
 import { ProductsDetailsPage } from "../pages/ProductsDetailsPage"
 import { MyCartPage } from "../pages/MyCartPage"
 import { OrderPage } from "../pages/OrderPage"
+import { APIUtils } from "../utils/APIUtils"
+import { request } from "@playwright/test"
 
 export const test = base.extend({
     loginPage : async({page} , use)=>{
@@ -14,7 +16,12 @@ export const test = base.extend({
     dashboardPage : async({loginFixture, page} , use)=>{
         const dashboardPage = new DashboardPage(page)
         await use(dashboardPage)
-    } , 
+    } ,
+
+    dashboardPage2 : async({page} , use) => {
+        const dashboardPage2 = new DashboardPage(page)
+        await use(dashboardPage2)
+    } ,
 
     productDetailsPage : async({page} , use)=>{
 
@@ -30,6 +37,11 @@ export const test = base.extend({
     orderPage : async({page} , use)=>{
         const orderPage = new OrderPage(page)
         await use(orderPage)
+    } ,
+
+    apiUtils : async({request} , use) => {
+        const apiUtils = new APIUtils(request)
+        await use(apiUtils)
     }
 
 
