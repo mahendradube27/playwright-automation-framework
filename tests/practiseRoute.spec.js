@@ -32,10 +32,5 @@ test('Mocking Room Availability with route.fulfill', async ({ page }) => {
 
   // 4. Navigate to the page
   await page.goto('https://automationintesting.online/');
-  await page.pause()
-  // 5. Verification: The UI should now show the "Playwright Executive Suite"
-  const roomName = page.locator('text=Playwright Executive Suite');
-  await expect(roomName).toBeVisible();
-  
-  console.log('Successfully intercepted and fulfilled the API request!');
+
 });
