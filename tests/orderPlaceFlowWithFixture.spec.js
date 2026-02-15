@@ -1,7 +1,7 @@
 
 import {test , expect} from "../fixtures/PageObjects"
 
-test('Order Place Flow With Fixture' , async({dashboardPage , productDetailsPage , myCartPage , orderPage ,page})=>{
+test('Order Place Flow With Fixture @regression' , async({dashboardPage , productDetailsPage , myCartPage , orderPage ,page})=>{
 
     await expect(page).toHaveURL(/dashboard/)
     await dashboardPage.viewProduct()
